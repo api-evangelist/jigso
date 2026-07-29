@@ -1,7 +1,30 @@
 aid: jigso
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jigso.png
 name: Jigso
-description: Jigso is a company surfaced as a portfolio company of general-catalyst and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Jigso is a proactive AI operating system for enterprises that synthesizes data
+  from across a company's business applications - CRM, support, communication, and
+  data warehouses - into a unified, always-on intelligence layer. Rather than
+  reactive search, Jigso continuously monitors connected systems to surface deal
+  risks, churn signals, and action items, and grounds every answer in verifiable
+  business data to avoid hallucination. It exposes this capability through a REST
+  API for embedding insights into workflows, dashboards, and internal tools, and
+  through an enterprise MCP (Model Context Protocol) platform that lets AI
+  assistants such as ChatGPT and Claude securely query internal systems with
+  permission-aware access. Jigso integrates with Salesforce, HubSpot, Slack, Gmail,
+  Google Drive, Jira, Zendesk, Snowflake, BigQuery, and more, and is SOC 2 Type II
+  certified and GDPR compliant. Jigso is backed by General Catalyst.
 url: https://raw.githubusercontent.com/api-evangelist/jigso/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +34,64 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Artificial Intelligence
+- Enterprise
+- Business Intelligence
+- Revenue Operations
+- Model Context Protocol
+- Agents
+- Data Integration
+- Customer Success
+- Sales
+apis:
+- name: Jigso API
+  description: >-
+    REST API that exposes the Jigso platform in code - query all organizational
+    data with simple REST calls, embed insights into dashboards, chatbots, and
+    internal applications, and trigger scheduled or event-driven queries for
+    automated decisions. Enterprise-grade with SOC 2 compliance and role-based
+    permissions. Public developer documentation and OpenAPI are not published;
+    access is arranged with Jigso.
+  humanURL: https://www.jigso.io/jigso-api
+  baseURL: https://app.jigso.io
+  properties:
+  - type: Integrations
+    url: https://www.jigso.io/integrations
+common:
+- type: TrustCenter
+  url: security/jigso-trust-center.yml
+- type: DomainSecurity
+  url: security/jigso-domain-security.yml
+- type: Website
+  url: https://www.jigso.io
+- type: Integrations
+  url: https://www.jigso.io/integrations
+- type: Blog
+  url: https://www.jigso.io/blog
+- type: Support
+  url: mailto:support@jigso.io
+- type: Login
+  url: https://app.jigso.io/login
+- type: TermsOfService
+  url: https://www.jigso.io/terms
+- type: PrivacyPolicy
+  url: https://www.jigso.io/privacy
+- type: Compliance
+  url: https://www.jigso.io/security-portal
+- type: Conformance
+  url: conformance/jigso-conformance.yml
+- type: LLMsTxt
+  url: llms/jigso-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

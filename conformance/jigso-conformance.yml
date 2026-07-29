@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.jigso.io/security-portal
+# Standards/compliance posture Jigso publishes. No public OpenAPI is available,
+# so protocol-level conformance (oauth2/oidc/rfc9457/etc.) cannot be derived and
+# is left unasserted rather than guessed.
+standards:
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    Security portal states SOC 2 Type II certification covering security,
+    availability, confidentiality, and privacy.
+- id: gdpr
+  conforms: true
+  evidence: Security portal states a GDPR readiness program has been implemented.
+- id: iso-27001
+  conforms: false
+  evidence: >-
+    Mentioned only as an AWS infrastructure-provider certification, not held by
+    Jigso.
+- id: hipaa
+  conforms: false
+  evidence: Mentioned only in the AWS infrastructure context, not held by Jigso.
+- id: pci-dss
+  conforms: false
+  evidence: Mentioned only in the AWS infrastructure context, not held by Jigso.
+- id: fedramp
+  conforms: false
+  evidence: Mentioned only in the AWS infrastructure context, not held by Jigso.

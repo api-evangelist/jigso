@@ -1,0 +1,28 @@
+# Jigso
+
+> Jigso is a proactive AI operating system for enterprises that synthesizes data from across a company's business applications - CRM, support, communication, and data warehouses - into a unified, always-on intelligence layer. It continuously monitors connected systems to surface deal risks, churn signals, and action items, grounding every answer in verifiable business data. Capability is exposed through a REST API and an enterprise MCP (Model Context Protocol) platform. Jigso is SOC 2 Type II certified and GDPR compliant, and is backed by General Catalyst.
+
+## Product
+- [Jigso](https://www.jigso.io): Proactive AI operating system / always-on intelligence layer for enterprises.
+- [Use Cases](https://www.jigso.io/use-cases): GTM & Sales, Customer Success, Leadership & Ops, Marketing.
+- [Integrations](https://www.jigso.io/integrations): Salesforce, HubSpot, Slack, Gmail, Google Drive, Google Calendar, Microsoft 365, Microsoft Teams, Zendesk, Jira, Confluence, Monday.com, ClickUp, Snowflake, Zoom, Tableau, Power BI, Gong, Amazon Redshift, PostgreSQL, MySQL, Notion, BigQuery, Freshdesk.
+
+## Developer
+- [Jigso API](https://www.jigso.io/jigso-api): REST API to query organizational data, embed insights into dashboards/chatbots/internal apps, and trigger scheduled or event-driven queries. SOC 2 compliant with role-based permissions. Public developer documentation and OpenAPI are not published; access is arranged with Jigso.
+- [MCP for Enterprise](https://www.jigso.io/mcp-for-enterprise): Enterprise MCP platform connecting internal tools (Gmail, Slack, Jira, HubSpot, Salesforce, Zendesk, Office 365, BigQuery, Snowflake) to AI assistants such as ChatGPT and Claude with permission-aware access.
+- [Login](https://app.jigso.io/login)
+
+## Security & Compliance
+- [Security Portal](https://www.jigso.io/security-portal): SOC 2 Type II, GDPR readiness program, encryption at rest and in transit, BYOK, annual CREST-accredited penetration testing.
+- [Security Overview](https://www.jigso.io/security)
+
+## Company
+- [About](https://www.jigso.io/about)
+- [Customers](https://www.jigso.io/customers)
+- [Blog](https://www.jigso.io/blog)
+- [Contact / Book a Demo](https://www.jigso.io/contact)
+- Support: support@jigso.io
+
+## Legal
+- [Privacy Policy](https://www.jigso.io/privacy)
+- [Terms of Service](https://www.jigso.io/terms)
