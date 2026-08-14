@@ -85,13 +85,37 @@ common:
   url: conformance/jigso-conformance.yml
 - type: LLMsTxt
   url: llms/jigso-llms.txt
+- type: Plans
+  url: plans/jigso-plans-pricing.yml
+- type: Lifecycle
+  url: lifecycle/jigso-lifecycle.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 5
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Jigso markets both a REST API and an enterprise MCP platform as top-level
+    products, but neither has a developer portal, a reference, or a published
+    endpoint - both pages end at "Book a Demo", docs.jigso.io and
+    developer.jigso.io do not resolve, and the live API host api.jigso.io
+    answers every path, including "/", with {"error": {"type": "Unauthorized",
+    "message": "Authorization header required"}}.
+  evidence:
+  - url: https://www.jigso.io/jigso-api
+    status: 200
+  - url: https://api.jigso.io/openapi.json
+    status: 401
+  - url: https://www.jigso.io/mcp-for-enterprise
+    status: 200
+  - url: https://www.jigso.io/pricing
+    status: 404
+  checked: '2026-08-13'
