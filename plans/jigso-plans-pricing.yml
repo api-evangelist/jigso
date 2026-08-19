@@ -1,0 +1,38 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.jigso.io/get-a-quote
+plan_count: 0
+currency: null
+note: >-
+  Jigso publishes no pricing page and no plan table. https://www.jigso.io/pricing
+  returns HTTP 404 and the path is absent from the sitemap; the only commercial
+  surface in the site navigation is "Book a Demo" leading to
+  https://www.jigso.io/get-a-quote, which is purely a contact form with no
+  tiers, seats, quotas or prices on it. The FAQ does state that "Jigso AI Basic
+  is a free version available for install directly from our menu bar above" and
+  that "for Jigso's more advanced enterprise version with unlimited usage,
+  onboarding can take 1-2 weeks" - so a free tier and an enterprise tier exist by
+  name, but Jigso attaches no published price, quota, seat count or limit to
+  either. plan_count is therefore 0: nothing priced is published. API and MCP
+  access are not mentioned in any tier.
+named_tiers_without_published_terms:
+- name: Jigso AI Basic
+  price: null
+  note: >-
+    Described in the FAQ as a free version installed directly from the site.
+    No quota, seat limit or feature list is published.
+  source: https://www.jigso.io/faq
+- name: Enterprise
+  price: null
+  note: >-
+    Described in the FAQ as "Jigso's more advanced enterprise version with
+    unlimited usage" with a 1-2 week onboarding. Quoted through sales only.
+  source: https://www.jigso.io/faq
+plans: []
+evidence:
+- url: https://www.jigso.io/pricing
+  status: 404
+- url: https://www.jigso.io/get-a-quote
+  status: 200
+- url: https://www.jigso.io/faq
+  status: 200

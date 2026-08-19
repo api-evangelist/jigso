@@ -1,0 +1,25 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.jigso.io/jigso-api
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  Jigso publishes no rate limits. The API product page
+  (https://www.jigso.io/jigso-api) is marketing copy - it describes "simple REST
+  calls", role-based permissions and a "SOC2-compliant, read-only architecture"
+  but names no host, no endpoint, no quota, no window and no throttling
+  behaviour. There is no developer portal (docs.jigso.io and developer.jigso.io
+  do not resolve) and no reference page anywhere on www.jigso.io that documents
+  limits. Nothing could be observed at runtime either: the API host discovered
+  during contract discovery, api.jigso.io, answers HTTP 401 on every path
+  including "/", so no unauthenticated response carrying RateLimit-*,
+  X-RateLimit-* or Retry-After headers could be sampled. An honest zero, not an
+  unchecked field.
+evidence:
+- url: https://www.jigso.io/jigso-api
+  status: 200
+- url: https://api.jigso.io/
+  status: 401
+- url: https://docs.jigso.io/
+  status: 0

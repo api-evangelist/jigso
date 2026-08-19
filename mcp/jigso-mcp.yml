@@ -1,0 +1,61 @@
+generated: '2026-08-13'
+method: searched
+status: marketed-no-public-endpoint
+source: https://www.jigso.io/mcp-for-enterprise
+description: >-
+  Jigso markets an enterprise MCP platform as a first-class product - it has its
+  own top-level nav item and product page - describing itself as "an
+  enterprise-ready MCP platform that connects all your internal tools to AI with
+  security and ease", connecting Gmail, Slack, Jira, HubSpot, Salesforce,
+  Zendesk, Office 365, BigQuery and Snowflake to assistants such as ChatGPT and
+  Claude. The product is real. What is NOT published anywhere public is the
+  thing an MCP client needs: no endpoint URL, no install command, no package, no
+  tool list, no auth scheme, no configuration snippet. Access appears to be
+  provisioned per tenant through the sales motion (https://www.jigso.io/get-a-quote).
+deployment:
+  mode: none
+  auth: unknown
+  verified: searched
+  note: >-
+    `mode: none` is used because no reachable server could be verified, not
+    because the provider ships nothing. Jigso does operate an MCP platform; it
+    simply publishes no address for it. Every candidate endpoint was probed and
+    none is an MCP server: api.jigso.io/mcp and /v1/mcp return the SAME host-wide
+    401 JSON envelope that "/" and every other path on that host returns
+    (an authentication wall, not an MCP OAuth challenge); app.jigso.io/mcp
+    returns a CloudFront 403 "distribution is not configured to allow the HTTP
+    request method that was used" to POST and a 404 to GET (a CDN artifact, not
+    a server); mcp.jigso.io does not resolve. No endpoint URL has been guessed
+    or invented.
+tools: []
+tools_note: >-
+  No tool list is published. There is no OpenAPI to derive a candidate tool set
+  from either - Jigso publishes no machine-readable contract - so no candidate
+  tools are asserted.
+evidence:
+- url: https://www.jigso.io/mcp-for-enterprise
+  status: 200
+  finding: MCP product page; marketing copy only, no endpoint or install instructions.
+- url: https://api.jigso.io/mcp
+  status: 401
+  finding: 'Host-wide auth wall: {"error": {"type": "Unauthorized", "message": "Authorization
+    header required", "status_code": 401}} - identical to the response at "/".'
+- url: https://app.jigso.io/mcp
+  status: 403
+  finding: CloudFront method restriction on POST; GET of the same path returns 404.
+- url: https://mcp.jigso.io/mcp
+  status: 0
+  finding: Host does not resolve (NXDOMAIN).
+- url: https://registry.modelcontextprotocol.io/v0/servers?search=jigso
+  status: 200
+  finding: 'Official MCP registry: {"servers":[],"metadata":{"count":0}} - Jigso has
+    published no server.'
+pointer_withheld:
+  type: MCPServer
+  reason: >-
+    No apis.yml `type: MCPServer` pointer is emitted for this artifact. The
+    pointer asserts that an agent can reach an MCP server the provider serves,
+    and it carries 4 ergonomics points plus 12 agent-readiness points. Nothing
+    published by Jigso lets an agent connect. When Jigso publishes an endpoint
+    URL or an install command, wire the pointer and set deployment.mode
+    accordingly - the artifact is already shaped for it.

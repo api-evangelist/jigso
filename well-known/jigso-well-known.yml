@@ -1,0 +1,141 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of every host in apis.yml plus the discovered API host
+# RECORDED ABSENCE. Every /.well-known/ path on every Jigso host missed:
+# www.jigso.io and app.jigso.io return a hard 404, and api.jigso.io returns the
+# same host-wide 401 JSON envelope it returns for "/" and for every other path,
+# which is an authentication wall rather than a served document. No WellKnown,
+# SecurityTxt, AgentCard or APICatalog pointer is emitted in apis.yml - none of
+# these surfaces is actually served by the provider.
+hosts:
+- host: www.jigso.io
+  note: marketing site (Webflow); all well-known paths hard 404
+- host: app.jigso.io
+  note: web application host; all well-known paths hard 404
+- host: api.jigso.io
+  note: >-
+    API host discovered during contract discovery. Not named in apis.yml or in
+    any Jigso documentation. Every path - including "/" - answers HTTP 401 with
+    {"error": {"type": "Unauthorized", "message": "Authorization header
+    required", "status_code": 401}}. The 401s below are the host-wide auth wall,
+    NOT evidence that a document exists at that path.
+documents:
+- path: /.well-known/security.txt
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/openid-configuration
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/oauth-protected-resource
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/api-catalog
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/ai-plugin.json
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/agent-card.json
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/agent.json
+  status: 404
+  host: www.jigso.io
+- path: /.well-known/security.txt
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/openid-configuration
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/oauth-protected-resource
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/api-catalog
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/ai-plugin.json
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/agent-card.json
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/agent.json
+  status: 404
+  host: app.jigso.io
+- path: /.well-known/security.txt
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/openid-configuration
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/oauth-authorization-server
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/oauth-protected-resource
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/api-catalog
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/ai-plugin.json
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/agent-card.json
+  status: 401
+  host: api.jigso.io
+- path: /.well-known/agent.json
+  status: 401
+  host: api.jigso.io
+# Contract discovery (pipeline STEP 0b) run alongside the well-known sweep.
+contract_discovery:
+  openapi:
+    found: false
+    probed:
+    - {url: 'https://www.jigso.io/openapi.json', status: 404}
+    - {url: 'https://app.jigso.io/openapi.json', status: 404}
+    - {url: 'https://app.jigso.io/swagger.json', status: 404}
+    - {url: 'https://app.jigso.io/v1/openapi.json', status: 404}
+    - {url: 'https://app.jigso.io/api-docs', status: 404}
+    - {url: 'https://app.jigso.io/docs', status: 404}
+    - {url: 'https://api.jigso.io/openapi.json', status: 401}
+    - {url: 'https://api.jigso.io/openapi.yaml', status: 401}
+    - {url: 'https://api.jigso.io/swagger.json', status: 401}
+    - {url: 'https://api.jigso.io/v1/openapi.json', status: 401}
+    - {url: 'https://api.jigso.io/api-docs', status: 401}
+    - {url: 'https://api.jigso.io/docs', status: 401}
+    - {url: 'https://api.jigso.io/redoc', status: 401}
+    - {url: 'https://docs.jigso.io/', status: 0}
+    - {url: 'https://developer.jigso.io/', status: 0}
+    note: >-
+      docs.jigso.io and developer.jigso.io do not resolve (NXDOMAIN). There is no
+      developer portal and no reference site to render a spec from.
+  graphql:
+    found: false
+    probed:
+    - {url: 'https://graphql.jigso.io/', status: 0}
+    note: No /graphql surface is documented or resolvable.
+  mcp:
+    found: false
+    probed:
+    - {url: 'https://api.jigso.io/mcp', status: 401}
+    - {url: 'https://api.jigso.io/v1/mcp', status: 401}
+    - {url: 'https://app.jigso.io/mcp', status: 403}
+    - {url: 'https://mcp.jigso.io/mcp', status: 0}
+    - {url: 'https://registry.modelcontextprotocol.io/v0/servers?search=jigso', status: 200}
+    note: >-
+      tools/list POSTs returned the host-wide 401 on api.jigso.io and a CloudFront
+      "distribution is not configured to allow the HTTP request method" 403 on
+      app.jigso.io (GET of the same path is a 404) - neither is an MCP OAuth
+      challenge. The official MCP registry returns zero servers for "jigso".
+      See mcp/jigso-mcp.yml.
+  agent_card:
+    found: false
+    note: >-
+      No 200 carrying AgentCard shape on any host. Nothing written to a2a/ -
+      an agent card is search-only and is never authored on a provider's behalf.

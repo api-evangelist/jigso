@@ -1,0 +1,40 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.jigso.io/sitemap.xml
+# Recorded absence. Jigso publishes none of the operational-transparency surfaces
+# this artifact normally captures. No StatusPage or Deprecation pointer is
+# emitted in apis.yml, because neither exists to point at.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: >-
+    No versioning policy is published. No version identifier appears in any
+    public Jigso material; the API product page names no path, header or date
+    scheme.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No deprecation or sunset policy is published (RFC 8594 support unknown).
+sla:
+  url: null
+  uptime_target: null
+  note: No SLA or uptime commitment is published outside of the sales motion.
+status_page: null
+status_page_note: >-
+  status.jigso.io does not resolve (NXDOMAIN) and no status page is linked from
+  the site navigation, the footer, the security portal or the sitemap.
+changelog: null
+changelog_note: >-
+  https://www.jigso.io/changelog returns 404 and no changelog or release-notes
+  path appears in the sitemap. The blog (https://www.jigso.io/blog, with 66
+  /tl-dr-blog posts in the sitemap) is thought-leadership content, not a dated
+  product changelog, so no changelog/ artifact is written.
+deprecated_operations: []
+evidence:
+- url: https://status.jigso.io/
+  status: 0
+- url: https://www.jigso.io/changelog
+  status: 404
+- url: https://www.jigso.io/sitemap.xml
+  status: 200
